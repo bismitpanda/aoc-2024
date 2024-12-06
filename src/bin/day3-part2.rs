@@ -19,7 +19,6 @@ fn main() {
                     m.get(3).unwrap().as_str().parse().unwrap(),
                 )
             } else {
-                dbg!(m.get(0).unwrap().as_str());
                 if m.get(0).unwrap().as_str() == "do()" {
                     Instr::Do
                 } else {
@@ -39,10 +38,8 @@ fn main() {
                 Instr::Dont => do_instr = false,
                 Instr::Do => {}
             }
-        } else {
-            if instr == Instr::Do {
-                do_instr = true;
-            }
+        } else if instr == Instr::Do {
+            do_instr = true;
         }
     }
 

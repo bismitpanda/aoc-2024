@@ -19,11 +19,11 @@ fn main() {
 
     let count = (0..input.len())
         .cartesian_product(0..input[0].len())
-        .filter(|&(x, y)| input[x as usize][y as usize] == 'X')
+        .filter(|&(x, y)| input[x][y] == 'X')
         .flat_map(|(x, y)| {
             let input = input.clone();
             DIRECTIONS.iter().filter_map(move |&(dx, dy)| {
-                (0..4 as isize)
+                (0..4)
                     .map(|n| {
                         input
                             .get((x as isize + dx * n) as usize)?
